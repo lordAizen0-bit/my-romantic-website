@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Feelings for You</title>
+    <style>
+        body {
+            background-color: #ffebef;
+            background-image: url('your-background-image-url.jpg');
+            background-size: cover;
+            color: #d50000;
+            font-family: 'Cursive', sans-serif;
+            text-align: center;
+            padding: 50px;
+            position: relative;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 900px;
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .book-container {
+            background: #fff0f5;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 600px;
+            text-align: left;
+            font-size: 1.5em;
+            border: 5px solid #ff4081;
+            position: relative;
+            z-index: 1;
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        .navigation {
+            margin-top: 20px;
+        }
+        .nav-button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border: none;
+            background-color: #ff4081;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #ff0055;
+        }
+        .footer {
+            margin-top: 50px;
+            font-size: 1.4em;
+            color: #ff3366;
+            background: rgba(255, 192, 203, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        @media (max-width: 768px) {
+            .image-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .image-container img {
+                margin-bottom: 10px;
+            }
+            .book-container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img src="photo1.jpg" alt="Left Image">
+            <img src="photo2.jpg" alt="Right Image">
+        </div>
+        <div class="book-container">
+            <div class="page active" id="page1">
+                <h1>My Feelings for You</h1>
+                <p>From the moment I met you, my heart knew you were special. Every moment with you is a treasure, and I can't imagine my life without you. ❤️</p>
+            </div>
+            <div class="page" id="page2">
+                <h1>Why I Love You</h1>
+                <p>Your kindness, your smile, and the way you light up my world. You make my life feel like a dream come true. I am endlessly grateful for you. 💕</p>
+            </div>
+            <div class="page" id="page3">
+                <h1>My feelings</h1>
+                <p>it does not matter that you won't give that much time,All I ever wanted is your sweet love. A love that only i deserve, And you to always choose me.💞</p>
+            </div>
+            <div class="page" id="page4">
+                <h1>how I feel sometimes</h1>
+                <p>somehow I feel sometimes that you are going apart from me,that you don't share your sadness,problems with me,you always cries alone. Don't do that I'm alaways here for you.</p>
+            </div>
+            <div class="page" id="page5">
+                <h1>Our Forever</h1>
+                <p>With every heartbeat, I promise to love you, cherish you, and stand by your side through every joy and challenge. You are my everything. 💞</p>
+            </div>
+        </div>
+        <div class="navigation">
+            <button class="nav-button" onclick="prevPage()">Previous</button>
+            <button class="nav-button" onclick="nextPage()">Next</button>
+        </div>
+    </div>
+    <div class="footer">
+        <p>You are the love story I always wished for. Every heartbeat of mine whispers your name. 💑💞</p>
+        <p>Tonight, under the stars, let's promise to love endlessly, to hold each other close, and to never let go. 🌹</p>
+    </div>
+    <script>
+        let currentPage = 1;
+        const totalPages = 5;
+
+        function showPage(page) {
+            document.querySelectorAll('.page').forEach((p, index) => {
+                p.classList.remove('active');
+                if (index + 1 === page) {
+                    p.classList.add('active');
+                }
+            });
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                showPage(currentPage);
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        }
+    </script>
+</body>
+</html>
