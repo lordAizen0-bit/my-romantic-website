@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day!</title>
+    <style>
+        body {
+            background-color: #ffebef;
+            background-image: url('your-background-image-url.jpg');
+            background-size: cover;
+            color: #d50000;
+            font-family: 'Cursive', sans-serif;
+            text-align: center;
+            padding: 50px;
+            position: relative;
+        }
+        h1 {
+            font-size: 3.5em;
+            animation: fadeIn 2s;
+            color: #ff3366;
+        }
+        p {
+            font-size: 1.8em;
+            margin: 20px 0;
+            animation: slideIn 2s;
+        }
+        .heart {
+            font-size: 6em;
+            animation: bounce 1s infinite;
+        }
+        .valentine-question {
+            margin: 20px 0;
+        }
+        .yes-button, .no-button {
+            font-size: 1.8em;
+            padding: 12px 24px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 30px;
+            border: none;
+            transition: transform 0.3s ease, background-color 0.3s;
+        }
+        .yes-button {
+            background-color: #ff4081;
+            color: white;
+        }
+        .yes-button:hover {
+            background-color: #ff0055;
+            transform: scale(1.1);
+        }
+        .no-button {
+            background-color: #d50000;
+            color: white;
+        }
+        .no-button:hover {
+            background-color: #ff3333;
+        }
+        .character-container {
+            display: none;
+            margin-top: 20px;
+            animation: fadeIn 1s;
+        }
+        .character {
+            width: 250px;
+            height: 300px;
+            background-image: url('3d.jpg');
+            background-size: cover;
+            margin: 0 auto;
+        }
+        .bukkae {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-image: url('rose.jpeg');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .top-left { top: 10px; left: 10px; }
+        .top-right { top: 10px; right: 10px; }
+        .bottom-left { bottom: 10px; left: 10px; }
+        .bottom-right { bottom: 10px; right: 10px; }
+    </style>
+</head>
+<body>
+    <div class="bukkae top-left"></div>
+    <div class="bukkae top-right"></div>
+    <div class="bukkae bottom-left"></div>
+    <div class="bukkae bottom-right"></div>
+    
+    <h1>Happy Valentine's Day!</h1>
+    <p>You are the love of my life!</p>
+    <div class="heart">❤️</div>
+    <p>This year also Let's make beautiful memories together!</p>
+    
+    <div class="valentine-question">
+        <p>Will you be my Valentine? I'm not going to ask this</p>
+        <P>I will ask this will you be my onlyGirl for my whole life </P>
+        <button class="yes-button" id="yes-button">Yes</button>
+        <button class="no-button" id="no-button">No</button>
+    </div>
+
+    <div class="character-container" id="character">
+        <div class="character"></div>
+        <p id="character-message">Oh no! Are you sure? 💔</p>
+    </div>
+
+    <script>
+        let noClickCount = 0;
+        const messages = [
+            "Oh no! Are you sure? 💔",
+            "Please reconsider! 😭",
+            "Don't break my heart! 💔🥺",
+            "I won't give up! 😤",
+            "Okay, now you're just playing with me... 😢",
+            "Fine! But I'll be sad forever... 😭",
+            "please dont do this...😭"
+        ];
+
+        document.getElementById("no-button").addEventListener("click", function() {
+            document.getElementById("character").style.display = "block";
+            document.getElementById("character-message").textContent = messages[Math.min(noClickCount, messages.length - 1)];
+            noClickCount++;
+            
+            let yesButton = document.getElementById("yes-button");
+            let currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+            yesButton.style.fontSize = (currentSize * 1.2) + "px";
+            yesButton.style.padding = (parseFloat(yesButton.style.padding) * 1.2) + "px";
+        });
+
+        document.getElementById("yes-button").addEventListener("click", function() {
+            window.location.href = "feelings.html";
+        });
+    </script>
+
+    <footer>
+        <p>With all my love,Malkin Ji</p>
+    </footer>
+</body>
+</html>
